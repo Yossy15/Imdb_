@@ -32,14 +32,15 @@ export interface Person {
   providedIn: 'root'
 })
 export class MovieService {
-  private moviesUrl = '../../assets/data/movies.json'
-  private peopleUrl = '../../assets/data/persons.json';
+  // ใช้ path จาก root ของแอป
+  private moviesUrl = '/assets/data/movies.json';
+  private peopleUrl = '/assets/data/persons.json';
 
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<{movies: Movie[]}>(this.moviesUrl)
-      .pipe(map(response => response.movies));
+    return this.http.get<{movies: Movie[]} | Movie[]>(this.moviesUrl)
+      .pipe(map(res => Array.isArray(res) ? res : res.movies));
   }
 
   getMovie(id: number): Observable<Movie | undefined> {
@@ -49,8 +50,8 @@ export class MovieService {
   }
 
   getPeople(): Observable<Person[]> {
-    return this.http.get<{people: Person[]}>(this.peopleUrl)
-      .pipe(map(response => response.people));
+    return this.http.get<{people: Person[]} | Person[]>(this.peopleUrl)
+      .pipe(map(res => Array.isArray(res) ? res : res.people));
   }
 
   getPerson(id: number): Observable<Person | undefined> {
