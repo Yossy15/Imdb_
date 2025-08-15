@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:prod": "node --max-old-space-size=8192 --optimize-for-size ./node_modules/@angular/cli/bin/ng build --configuration production",
     "build:dev": "node --max-old-space-size=4096 --optimize-for-size ./node_modules/@angular/cli/bin/ng build --configuration development",
+    "build:render": "node --max-old-space-size=512 --optimize-for-size --gc-interval=100 ./node_modules/@angular/cli/bin/ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:my-movie-hub": "node dist/my-movie-hub/server/server.mjs"
@@ -23,9 +24,6 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.15",
-    "@types/body-parser": "^1.19.5",
-    "body-parser": "^1.20.2",
-    "chart.js": "^4.4.2",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

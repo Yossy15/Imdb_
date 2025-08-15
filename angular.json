@@ -26,11 +26,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -46,13 +42,13 @@
             "budgets": [
               {
                 "type": "initial",
-                "maximumWarning": "2MB",
-                "maximumError": "5MB"
+                "maximumWarning": "1MB",
+                "maximumError": "2MB"
               },
               {
                 "type": "anyComponentStyle",
-                "maximumWarning": "6kB",
-                "maximumError": "10kB"
+                "maximumWarning": "4kB",
+                "maximumError": "8kB"
               }
             ]
           },
@@ -60,19 +56,19 @@
             "production": {
               "optimization": false,
               "sourceMap": false,
+              "outputHashing": "none",
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2MB",
-                  "maximumError": "5MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kB",
-                  "maximumError": "10kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
